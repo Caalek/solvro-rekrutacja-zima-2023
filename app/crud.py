@@ -72,7 +72,12 @@ def create_project(db: Session, project: schemas.ProjectCreate):
             )
         )
     db.commit()
-    return project
+    return {
+        "id": new_project.id,
+        "developer_owner_id": project.developer_owner_id,
+        "name": project.name,
+        "developers": project.developers
+    }
 
 
 def read_project(db: Session, id: int):
@@ -349,6 +354,7 @@ def read_assignment(db: Session, project_id: int, assignment_id: int):
 
 
 def read_project_assignments(db: Session, project_id: int):
+    response = []
     assignments = (
         db.query(models.Assignment)
         .filter(models.Assignment.project_id == project_id)
@@ -358,7 +364,9 @@ def read_project_assignments(db: Session, project_id: int):
         raise HTTPException(
             status_code=404, detail="There are no assignments in this project."
         )
-    return assignments
+    for a in assignments:
+        response.append(read_assignment(db, project_id, a.id))
+    return response
 
 
 def update_assignment(

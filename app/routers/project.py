@@ -174,6 +174,7 @@ async def delete_project_assignment_route(
     "/project/{project_id}/assignments",
     tags=["Assignment"],
     description="Returns all assignments in project.",
+    response_model=list[schemas.Assignment]
 )
 async def read_project_assignments_route(
     project_id: int, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)
