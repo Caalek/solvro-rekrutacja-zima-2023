@@ -1,0 +1,11 @@
+version: '3'
+services:
+  task_manager_api:
+    container_name: task_manager_api
+    ports:
+      - "8000:8000"
+    build: "."
+    # image: ghcr.io/caalek/solvro-rekrutacja-zima-2023:latest
+    volumes:
+      - ./database:/app/database
+    # restart: unless-stopped

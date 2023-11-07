@@ -25,4 +25,4 @@ wget https://raw.githubusercontent.com/Caalek/solvro-rekrutacja-zima-2023/main/d
 2. Odpalamy
 ```
 docker compose up -d
-```# solvro-rekrutacja-zima-2023
+```
