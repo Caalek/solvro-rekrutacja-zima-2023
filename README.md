@@ -5,7 +5,7 @@ System przydzielający zadania developerom wykonany na rekrutację do KN Solvro 
 1. Klonujemy repo i wchodzimy do folderu
 ```
 git clone https://github.com/Caalek/solvro-rekrutacja-zima-2023
-cd
+cd solvro-rekrutacja-zima-2023
 ```
 2. Pobieramy `pip`em niezbędne paczki:
 ```
